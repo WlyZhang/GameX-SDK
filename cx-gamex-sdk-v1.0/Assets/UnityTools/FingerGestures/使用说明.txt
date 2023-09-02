@@ -1,0 +1,6 @@
+把
+Plugins 
+FigerGestures
+两个目录拷贝到项目的assert目录中
+
+FingerEvent.cs是使用实例

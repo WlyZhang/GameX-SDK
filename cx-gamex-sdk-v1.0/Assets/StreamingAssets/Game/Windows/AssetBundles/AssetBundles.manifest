@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 2434991310
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uipanel/gamepanel
+      Dependencies: {}
+    Info_1:
+      Name: uipanel/collectgameitem
+      Dependencies: {}
+    Info_2:
+      Name: uipanel/energypanel
+      Dependencies: {}
+    Info_3:
+      Name: model/player
+      Dependencies: {}
+    Info_4:
+      Name: uipanel/messagepanel
+      Dependencies: {}
+    Info_5:
+      Name: uipanel/historygamepanel
+      Dependencies: {}
+    Info_6:
+      Name: uipanel/gameitem
+      Dependencies: {}
+    Info_7:
+      Name: uipanel/firstpanel
+      Dependencies: {}
+    Info_8:
+      Name: uipanel/preventaddictionpanel
+      Dependencies: {}
+    Info_9:
+      Name: uipanel/collectgamepanel
+      Dependencies: {}
+    Info_10:
+      Name: model/cube
+      Dependencies: {}
+    Info_11:
+      Name: uipanel/loginpanel
+      Dependencies: {}
+    Info_12:
+      Name: uipanel/historygameitem
+      Dependencies: {}
+    Info_13:
+      Name: uipanel/gamead
+      Dependencies: {}
+    Info_14:
+      Name: uipanel/gamelist
+      Dependencies: {}
+    Info_15:
+      Name: src/lua
+      Dependencies: {}

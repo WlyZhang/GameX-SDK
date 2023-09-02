@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 393631897
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4949809426fc327e039d5415d06d7471
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7d042046b19d33236d8278fbe6727aa3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Download/Game/Resources/UI/Panel/PreventAddictionPanel.prefab
+Dependencies: []
