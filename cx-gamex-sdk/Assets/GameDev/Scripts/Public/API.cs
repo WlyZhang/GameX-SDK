@@ -15,7 +15,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 
-public class API
+
+public static class API
 {
 
     //1.读文件
@@ -118,14 +119,28 @@ public class API
     }
 
     /// <summary>
-    /// 时间戳转string
+    /// 本时区日期时间转时间戳
     /// </summary>
-    /// <param name="timestamp"></param>
-    /// <returns></returns>
-    public static string TimeToStrFormat(long timestamp)
+    /// <param name="datetime"></param>
+    /// <returns>long=Int64</returns>
+    public static long ToTimestamp(DateTime datetime)
     {
-        DateTime dateTime = DateTime.FromFileTime(timestamp); // 转换为DateTime类型
-
+        DateTime dd = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        DateTime timeUTC = DateTime.SpecifyKind(datetime, DateTimeKind.Utc);//本地时间转成UTC时间
+        TimeSpan ts = (timeUTC - dd);
+        return (Int64)(ts.TotalMilliseconds);//精确到毫秒
+    }
+    /// <summary>
+    /// 时间戳转本时区日期时间
+    /// </summary>
+    /// <param name="timeStamp"></param>
+    /// <returns></returns>
+    public static string TimestampToDateTime(long timeStamp)
+    {
+        DateTime dd = DateTime.SpecifyKind(new DateTime(1970, 1, 1, 0, 0, 0, 0), DateTimeKind.Local);
+        long longTimeStamp = long.Parse(timeStamp.ToString() + "0000");
+        TimeSpan ts = new TimeSpan(longTimeStamp);
+        DateTime dateTime = dd.Add(ts);
         string dateString = dateTime.ToString("yyyy-MM-dd HH:mm:ss"); // 转换为日期字符串
 
         return dateString;
@@ -388,7 +403,7 @@ public class API
 
     //29. md5 32位加密
 
-    public string Md5Sum(string str)
+    public static string Md5Sum(string str)
     {
         Debug.LogError("新字符:" + str_new2(str));
         System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -404,14 +419,14 @@ public class API
 
     /// 30. 正则 去除字符串中的双引号
 
-    public string str_new(string str)
+    public static string str_new(string str)
     {
         return System.Text.RegularExpressions.Regex.Replace(str, @"[\""]+", "");
     }
 
     //31.替换"为\"
 
-    public string str_new2(string str)
+    public static string str_new2(string str)
     {
         return System.Text.RegularExpressions.Regex.Replace(str, "\"", "\\\"");
     }
@@ -419,7 +434,7 @@ public class API
 
     /// 32.去除Json Key的双引号
 
-    public string JsonRegex(string jsonInput)
+    public static string JsonRegex(string jsonInput)
     {
         string result = string.Empty;
         try
@@ -456,6 +471,4 @@ public class API
         }
         return bb;
     }
-
-
 }
