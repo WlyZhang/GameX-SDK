@@ -51,8 +51,8 @@ public class UIPanelTool : MonoBehaviour
         string luaName = gameObject.name;
         string luaUnity = "unity";
         string luaPanel = "panel";
-        string panel = $"{luaName}.{luaPanel}";
-        string onClickFuncName = $"{luaName}.OnClickCallback";
+        string panel = $"self.{luaPanel}";
+        string onClickFuncName = $"{luaName}:OnClickCallback";
 
         luaCode = "\n" + luaName + " = {}\n\n";
         luaCode += $"function {luaName}:Create()\n\n";
@@ -67,7 +67,7 @@ public class UIPanelTool : MonoBehaviour
         List<string> tempInputFieldList = pathList["InputField"];
         for (int i = 0; i < tempInputFieldList.Count; i++)
         {
-            luaCode += $"\t{luaName}.{inputFieldList[i].name} = {panel}.transform:Find('{tempInputFieldList[i]}'):GetComponent('InputField')\n\n";
+            luaCode += $"\tself.{inputFieldList[i].name} = {panel}.transform:Find('{tempInputFieldList[i]}'):GetComponent('InputField')\n\n";
         }
 
         #endregion
@@ -80,7 +80,7 @@ public class UIPanelTool : MonoBehaviour
         List<string> tempButtonList = pathList["Button"];
         for (int i = 0; i < tempButtonList.Count; i++)
         {
-            luaCode += $"\t{luaName}.{buttonList[i].name} = {panel}.transform:Find('{tempButtonList[i]}'):GetComponent('Button')\n\n";
+            luaCode += $"\tself.{buttonList[i].name} = {panel}.transform:Find('{tempButtonList[i]}'):GetComponent('Button')\n\n";
         }
 
         #endregion
@@ -93,7 +93,7 @@ public class UIPanelTool : MonoBehaviour
         for (int i = 0; i < buttonList.Count; i++)
         {
             luaCode += $"\t--Button: {buttonList[i].name} µã»÷ÊÂ¼þ\n";
-            luaCode += $"\t{luaName}.{buttonList[i].name}.onClick:AddListener(function()\n\t\t\n";
+            luaCode += $"\tself.{buttonList[i].name}.onClick:AddListener(function()\n\t\t\n";
             luaCode += "\tend)\n\n";
         }
         #endregion
