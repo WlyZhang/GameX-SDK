@@ -21,6 +21,10 @@ public class UIPanelTool : MonoBehaviour
 
     private string luaCode = string.Empty;
 
+    public bool can_InputField;
+    public bool can_Text;
+    public bool can_Button;
+
 
     [Button("创建Lua组件")]
     [GUIColor(0,1,0)]
@@ -61,26 +65,48 @@ public class UIPanelTool : MonoBehaviour
 
         #region InputField 代码生成
         //InputField
-        List<InputField> inputFieldList = GetInputFieldList();
-        FindInputFieldPath(inputFieldList);
 
-        List<string> tempInputFieldList = pathList["InputField"];
-        for (int i = 0; i < tempInputFieldList.Count; i++)
+        if(can_InputField)
         {
-            luaCode += $"\tself.{inputFieldList[i].name} = {panel}.transform:Find('{tempInputFieldList[i]}'):GetComponent('InputField')\n\n";
+            List<InputField> inputFieldList = GetInputFieldList();
+            FindInputFieldPath(inputFieldList);
+
+            List<string> tempInputFieldList = pathList["InputField"];
+            for (int i = 0; i < tempInputFieldList.Count; i++)
+            {
+                luaCode += $"\tself.{inputFieldList[i].name} = {panel}.transform:Find('{tempInputFieldList[i]}'):GetComponent('InputField')\n\n";
+            }
         }
 
         #endregion
-        
-        #region Button 代码生成
-        //InputField
-        List<Button> buttonList = GetButtonList();
-        FindButtonPath(buttonList);
 
-        List<string> tempButtonList = pathList["Button"];
-        for (int i = 0; i < tempButtonList.Count; i++)
+        #region Text 代码生成
+        if (can_Text)
         {
-            luaCode += $"\tself.{buttonList[i].name} = {panel}.transform:Find('{tempButtonList[i]}'):GetComponent('Button')\n\n";
+            List<Text> textList = GetTextList();
+            FindTextPath(textList);
+
+            List<string> tempTextList = pathList["Text"];
+            for (int i = 0; i < tempTextList.Count; i++)
+            {
+                luaCode += $"\tself.{textList[i].name} = {panel}.transform:Find('{tempTextList[i]}'):GetComponent('Text')\n\n";
+
+            }
+        }
+        #endregion
+
+        #region Button 代码生成
+        //Button
+        List<Button> buttonList = GetButtonList();
+        if (can_Button)
+        {
+            FindButtonPath(buttonList);
+
+            List<string> tempButtonList = pathList["Button"];
+            for (int i = 0; i < tempButtonList.Count; i++)
+            {
+                luaCode += $"\tself.{buttonList[i].name} = {panel}.transform:Find('{tempButtonList[i]}'):GetComponent('Button')\n\n";
+            }
         }
 
         #endregion
@@ -88,14 +114,19 @@ public class UIPanelTool : MonoBehaviour
         luaCode += "end\n\n";
 
         #region Button 点击事件代码生成
-        luaCode += $"function {onClickFuncName}()\n\n";
 
-        for (int i = 0; i < buttonList.Count; i++)
+        if(can_Button)
         {
-            luaCode += $"\t--Button: {buttonList[i].name} 点击事件\n";
-            luaCode += $"\tself.{buttonList[i].name}.onClick:AddListener(function()\n\t\t\n";
-            luaCode += "\tend)\n\n";
+            luaCode += $"function {onClickFuncName}()\n\n";
+
+            for (int i = 0; i < buttonList.Count; i++)
+            {
+                luaCode += $"\t--Button: {buttonList[i].name} 点击事件\n";
+                luaCode += $"\tself.{buttonList[i].name}.onClick:AddListener(function()\n\t\t\n";
+                luaCode += "\tend)\n\n";
+            }
         }
+        
         #endregion
 
         luaCode += "end\n\n";
@@ -251,6 +282,13 @@ public class UIPanelTool : MonoBehaviour
     /// <param name="child"></param>
     private void GetParent<T>(string path, Transform child)
     {
+        if(child.Equals(child.root))
+        {
+            string key = typeof(T).Name;
+            pathList[key].Add(path);
+            return;
+        }
+
         if (child.parent.Equals(transform.parent))
         {
             string key = typeof(T).Name;
