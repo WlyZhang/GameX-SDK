@@ -5,7 +5,5 @@ local InitManager = load(initStr)()
 Utils:setScreen(true)
 
 
---检测版本
-VersionData:GetNewVersion(1,function (res)
-    FirstPanel:Create()
-end)
+
+Utils:Speak("你好，我们是辰星互动团队")

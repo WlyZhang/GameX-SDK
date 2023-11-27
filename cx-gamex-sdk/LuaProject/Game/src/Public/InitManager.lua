@@ -31,6 +31,8 @@ Http.Create()
 --Speech.Instance:Create()
 
 
+--文字转语音
+Speaker = CS.Crosstales.RTVoice.Speaker
 
 
 --Lua 管理器

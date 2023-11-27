@@ -76,5 +76,10 @@ function Utils:createPlayer()
     ModelManager:CreateModel("Player",false)
 end
 
+--文字转语音
+function Utils:Speak(str)
+    Speaker.Speak(str)
+end
+
 
 return Utils;
