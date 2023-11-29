@@ -1,9 +1,10 @@
 
 Class = {}
 
-function Class:New(o)
-    o = o or {}
-    setmetatable(o, {__index = Class})
+function Class:New(obj)
+    local o={}
+    obj.__index=obj
+    setmetatable(o,obj)
     return o
 end
 

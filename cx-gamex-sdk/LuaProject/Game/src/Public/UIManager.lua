@@ -77,7 +77,7 @@ function UIManager:Close(panelName)
     end
 end
 
-
+--互斥面板
 function UIManager:OpenAndCloseOther(panelName)
 
     local openPanel = nil

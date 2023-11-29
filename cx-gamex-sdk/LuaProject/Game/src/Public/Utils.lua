@@ -76,5 +76,20 @@ function Utils:createPlayer()
     ModelManager:CreateModel("Player",false)
 end
 
+--发送消息到服务器
+function Utils:sendToServer(type,url,key,json,callback)
+    Http.Instance:Message(type,url,key,json,callback)
+end
+
+--发送消息到Token服务器
+function Utils:sendToToken(url,userId,userToken,key,json,callback)
+    Http.Instance:MessageToken(url,userId,userToken,key,json,callback)
+end
+
+--发送消息到WWWForm服务器
+function Utils:sendToForm(url,wwwform,callback)
+    Http.Instance:MessageForm(url,wwwform,callback)
+end
+
 
 return Utils;

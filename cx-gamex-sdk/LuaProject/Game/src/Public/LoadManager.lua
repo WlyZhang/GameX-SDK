@@ -31,23 +31,6 @@ function LoadManager:SwitchDir(localPath)
     end
 end
 
-
---加载整包
-function LoadManager:LoadBundle(bundleName,isInitPath)
-    
-    local path = nil
-    if isInitPath then
-        path = LoadManager.path..bundleName
-    else
-        path = LoadManager.cachePath..bundleName
-    end
-
-    print(path)
-    local ab = unity.AssetBundle.LoadFromFile(path)
-    
-    return ab
-end
-
 --加载资源
 function LoadManager:LoadAsset(assetName,isInitPath)
     
