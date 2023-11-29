@@ -35,6 +35,8 @@ API = CS.API
 --Speech.Instance:Create()
 
 
+--语音播放
+Speaker = CS.Crosstales.RTVoice.Speaker
 
 
 --Lua 管理器
