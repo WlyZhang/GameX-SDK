@@ -52,9 +52,6 @@ ModelManager = RT("ModelManager")
 AudioManager = RT("AudioManager")
 VideoManager = RT("VideoManager")
 AppConst = RT("AppConst")
-Game = RT("Game")
-Message = RT("Message")
-Uri = RT("Uri")
 
 
 
