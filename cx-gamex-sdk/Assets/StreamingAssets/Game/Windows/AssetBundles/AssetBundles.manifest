@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2546899190
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: src/lua
+      Dependencies: {}
+    Info_1:
+      Name: model/cube
+      Dependencies: {}
+    Info_2:
+      Name: model/player
+      Dependencies: {}
+    Info_3:
+      Name: model/capsule
+      Dependencies: {}

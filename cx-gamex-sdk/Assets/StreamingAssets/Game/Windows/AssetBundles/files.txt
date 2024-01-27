@@ -1,0 +1,1 @@
+{"model/capsule":"ea12b1a6a80d419d3a29f50a422d28eb","model/cube":"c8a2c2563c9da8fa16ca726ddf1bbf87","model/player":"34a4ae27d755b9d0edd76ac1dd395e32","src/lua":"d90860a4616148993fd871df517c5ca3","AssetBundles":"38b85a958b05d2113574a2b157b26b9f"}

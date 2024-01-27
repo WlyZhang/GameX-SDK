@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1944572224
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: baa56fee7eaa90bdac8f8a6778e0e89f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaProject/Game/Windows/src/Resources/Public/AppConst.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/Timer.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/UIManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/UIBase.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/ModelManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/JSON.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/Utils.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/app.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/AudioManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/VideoManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/InitManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/LoadManager.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/UIType.lua.txt
+- Assets/LuaProject/Game/Windows/src/Resources/Public/EventDispatcher.lua.txt
+Dependencies: []
