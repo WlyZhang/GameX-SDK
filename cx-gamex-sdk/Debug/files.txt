@@ -1,1 +1,0 @@
-{"model/cube":"a528f94a6e30d9e94d68ad2017ceab65","model/player":"e0ad934e99b14dd6fd1ae2743dbb9e30","src/lua":"9751948c495a4e70c5cea02719767d07","AssetBundles":"963dbc9fc328d095d0e64303001136c7"}
